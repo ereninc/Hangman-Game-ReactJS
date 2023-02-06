@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .Hangman {
   width: 400px;
   color: black;
@@ -37,7 +43,7 @@
   font-size: 1rem;
   cursor: pointer;
   width: 30px;
-  margin: 5px 2px 2px 2px;
+  margin: 12px 3px 4px 2px;
   letter-spacing: 1px;
   outline: none;
   background: #ffc107;
@@ -45,10 +51,12 @@
   box-shadow: 0 6px #ff9800;
   border-radius: 5px;
   padding-top: 4px;
+  transition: all 0.3s ease;
 }
 
 .Hangman button:hover {
   background-color: #ff9800;
+  transform: scale(1.1);
 }
 
 .Hangman button:disabled {
@@ -59,4 +67,30 @@
 
 .hidden {
   display: none;
+}
+
+#restart-btn {
+  width: auto;
+  display: block;
+  margin: 20px auto;
+  padding: 5px 10px;
+  box-shadow: #0097a7;
+  background-color: #00bcd4;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#restart-btn:hover {
+  background-color: #0097a7;
+  transform: scale(1.25);
+}
+
+.win-text {
+  color: green;
+  margin-top: 35px;
+  font-weight: 700;
+  font-size: 24px;
 }
