@@ -58,6 +58,7 @@ class Hangman extends Component {
 
   /** render: render game */
   render() {
+    let gameOver = this.state.nWrong >= this.props.maxWrong;
     return (
       <div className="Hangman">
         <h1>Hangman</h1>
@@ -66,16 +67,12 @@ class Hangman extends Component {
           alt={`{${this.state.nWrong}/${this.props.maxWrong}`}
         />
         <p className="Hangman-wrong">
-          {this.state.nWrong >= 6
-            ? "YOU LOSE!"
-            : `Number wrong : ${this.state.nWrong}`}
+          {gameOver ? "YOU LOSE!" : `Number wrong : ${this.state.nWrong}`}
         </p>
-        <p className="Hangman-word">{this.guessedWord()}</p>
-        <p
-          className={`Hangman-btns ${
-            this.state.nWrong >= this.props.maxWrong ? "hidden" : ""
-          }`}
-        >
+        <p className="Hangman-word">
+          {gameOver ? this.state.answer : this.guessedWord()}
+        </p>
+        <p className={`Hangman-btns ${gameOver ? "hidden" : ""}`}>
           {this.generateButtons()}
         </p>
       </div>
